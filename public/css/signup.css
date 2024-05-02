@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+/*
+  VARIABLES DECLARATION ON ROOT
+*/
+:root {
+    --green: rgb(239, 10, 48);
+    --red: rgb(252, 86, 108);
+    --dusky-green: rgb(239, 10, 48);
+    --opac-white: rgba(9, 8, 8, 0.8);
+    --form-txt: black;
+    --darky: #e6eff9;
+    --light-grey: rgb(105, 105, 105);
+}
+
+/*
+    COMMON STYLING
+*/
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+label {
+    font-weight: 600;
+    color: #666;
+}
+
+.col-sm-6 {
+    margin-bottom: 6px;
+}

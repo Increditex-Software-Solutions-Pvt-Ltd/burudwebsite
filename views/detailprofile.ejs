@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>burud samaj vadhu-var suchak samiti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/profile_de.css"> -->
+    <style>
+        body {
+            background-color: rgb(245, 228, 231);
+        }
+
+        .db {
+            font-size: 20px;
+        }
+
+        .main_img {
+            height: 220px;
+            width: 230px;
+            box-shadow: 1px 2px 8px black;
+            border-radius: 20px;
+        }
+
+        .main_section {
+            box-shadow: 0px 0px 8px black;
+            padding: 25px 10px;
+            border-radius: 10px;
+        }
+
+        .carousel-inner {
+            height: 300px;
+            padding: 10px;
+            box-shadow: 1px 2px 5px black;
+
+        }
+
+        .bg-white {
+            border-radius: 15px;
+        }
+    </style>
+
+    <!-- font awesoome link put here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font awesome end here -->
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js" defer></script>
+</head>
+
+<body>
+    <section id="htmlContent">
+        <section class="container bg-light p-2  ">
+
+
+            <div class="p-3 text-center ">
+
+                <div class="p-3 text-center ">
+                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="display-5">profile Details
+                    </h1>
+                </div>
+                <div>
+                    <div class="row m-0  d-flex align-items-start justify-content-center">
+                        <div class="col-md-6">
+                            <div class="row m-0 ">
+                                <div class="col-md-4 ">
+                                    <div class=" main_img">
+                                        <img src="http://localhost:5000/<%= profile.userImage.biopicOne.replace(/\\/g, '/')%>"
+                                            class="" style="border-radius: 16px; object-fit: cover;" id="myImg"
+                                            alt="Cinque Terre" width="220" height="216">
+                                        <div id="myModal" class="modal">
+                                            <span class="close">&times;</span>
+                                            <img class="modal-content" id="img01">
+                                            <div id="caption"></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-8 d-flex align-items-center">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <div class="mt-5 text-center">
+                                    <h3 class="text-dark fs-5">
+                                        <%= profile.fullname %>
+                                    </h3>
+                                    <h5>City:<%= profile.city %>
+                                    </h5>
+                                    <a href="/viewpdf/<%= profile.id%>" class="btn btn-danger side_button mt-3">
+                                        <i class="fa fa-address-book mr-2"></i>View PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row m-0">
+                        <div class="col-md-6 mt-2">
+                            <button class="btn btn-primary side_button_2">
+                                <i class="fa fa-edit mr-1"></i>Edit Profile</button>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <button class="btn btn-danger side_button">
+                                <i class="fa fa-address-book mr-2" onclick="generatePdf()">Print PDF</i>
+                            </button>
+                        </div>
+                    </div> -->
+                </div>
+        </section>
+        <br> <br>
+
+        <section class="container main_section ">
+            <div class="row m-0 p-2">
+                <div class="col-md-4 mb-5">
+                    <div class="bg-white p-3 position-sticky" style="top: 30px;">
+                        <div id="demo" class="carousel slide" data-ride="carousel">
+
+                            <!-- Indicators -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                <li data-target="#demo" data-slide-to="1"></li>
+                                <li data-target="#demo" data-slide-to="2"></li>
+                            </ul>
+
+                            <!-- The slideshow -->
+                            <div class="carousel-inner mt-3 mb-5">
+                                <div class="carousel-item active">
+                                    <img class="img-fluid object-fit-cover"
+                                        src="http://localhost:5000/<%= profile.userImage.biopicTwo.replace(/\\/g, '/')%>"
+                                        alt="Los Angeles">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="img-fluid object-fit-cover"
+                                        src="http://localhost:5000/<%= profile.userImage.horoimage.replace(/\\/g, '/')%>"
+                                        alt="Chicago">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="img-fluid object-fit-cover"
+                                        src="http://localhost:5000/<%= profile.userImage.profilepic.replace(/\\/g, '/')%>"
+                                        alt="New York">
+                                </div>
+                                <div class="position-relative text-center" style="top:200px;">
+                                    <button class="btn btn-danger">Burud-bandhan.com</button>
+                                </div>
+
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#demo" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+
+                        </div>
+                        <div class="ProfileBtn text-center">
+
+
+                        </div>
+                        <div class="collapse mt-3" id="contact-collapse">
+                            <div class="card card-body bg-light text-center">
+                                <span class="" style="font-size: 20px; font-weight: 600;">contact details</span>
+
+                                <div class="d-flex flex-column">
+                                    <div class="justify-content-between mt-3">
+                                        <div class="d-flex flex-column">
+                                            <span class="text-danger">Mobile </span>
+                                            <span class="text-dark">
+                                                <%= profile.mobile%>
+                                            </span>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <span class="text-danger">Email </span>
+                                            <span class="text-dark">
+                                                <%= profile.email%>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-8" id="main_section">
+                    <div class="bg-white p-1">
+                        <h3 class="text-center">Personal detail(वैयक्तिक माहिती):</h3>
+                        <table class="table  table-striped table-striped table-hover p-2">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        FULL NAME (पूर्ण नाव )
+                                    </td>
+                                    <td>
+                                        <%= profile.fullname%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        BIRTH NAME (जन्म नाव )
+                                    </td>
+                                    <td>
+                                        <%= profile.birthname%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        BIRTH PLACE (जन्म ठिकाण ) :</td>
+                                    <td>
+                                        <%= profile.birthplace%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        DATE OF BIRTH (जन्म तारीख) :</td>
+                                    <td>
+                                        <%= profile.dateofbirth ? profile.dateofbirth.toISOString().substring(0, 10)
+                                            : '' %>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIME OF BIRTH (जन्म वेळ ) :</td>
+                                    <td>
+                                        <%= profile.timeofbirth%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HEIGHT (उंची):</td>
+                                    <td style="display: none;">
+                                        <% const heightInCm=profile.height; const totalInches=heightInCm * 0.393701;
+                                            const feet=Math.floor(totalInches / 12); const inches=Math.round(totalInches
+                                            % 12); %>
+                                    <td>
+                                        <%= feet %> ' <%= inches %> ''<span class="ml-3">(<%= profile.height%>
+                                                        &nbsp;cm)</span>
+                                    </td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>COMPLEXION (वर्ण):</td>
+                                    <td>
+                                        <%= profile.complexion%>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>EDUCATION (शिक्षण) :</td>
+                                    <td>
+                                        <%= profile.education%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>OCCUPATION / JOB (व्यवसाय / नोकरी ):</td>
+                                    <td>
+                                        <%= profile.occupation%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ANNUL INCOME (वार्षिक उत्पन्न ) :</td>
+                                    <td>
+                                        <%= profile.income%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>BLOOD GROUP(रक्तगट) :</td>
+                                    <td>
+                                        <%= profile.bloodgroup%>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>HUDDA(हुद्दा ) </td>
+                                    <td>
+                                        <%= profile.hudda%>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>OCCUPATION CITY (व्यवसायाचे शहर):</td>
+                                    <td>
+                                        <%= profile.occupationcity%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>MARITAL STATUS (वैवाहिक स्थिती):</td>
+                                    <td>
+                                        <%= profile.maritalstatus%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ADDRESS (पत्ता ):</td>
+                                    <td>
+                                        <%= profile.address%>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <br>
+
+                    <div class="bg-white p-1">
+                        <h3 class="text-center">Family Background (कुटुंबाचा तपशील)</h3>
+                        <table class="table  table-striped table-striped table-hover p-2">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        FATHER FULL NAME (वडिलांचे संपूर्ण नाव ):</td>
+                                    <td>
+                                        <%= profile.fathername%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>MOTHER MAHER FULL NAME (आईचे माहेरचे पूर्ण नाव ):</td>
+                                    <td>
+                                        <%= profile.mothername%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>FATHER OCCUPATION (वडील व्यावसाय/नोकरी ):</td>
+                                    <td>
+                                        <%= profile.fatheroccupation%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>MOTHER OCCUPATION (आई व्यावसाय/नोकरी ):</td>
+                                    <td>
+                                        <%= profile.motheroccupation%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>PARENTS ADDRESS (पालकांचा पत्ता ):</td>
+                                    <td>
+                                        <%= profile.parentaddress%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>FAMILY MEMBERS (कुटुंबातील सदस्य ):</td>
+                                    <td>
+                                        <%= profile.familymembers%>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="bg-white p-1">
+                        <h3 class="text-center">Expectation (अपेक्षा)</h3>
+                        <table class="table  table-striped table-striped table-hover p-2">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <%= profile.expectation%>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="ProfileBtn text-center">
+
+
+                    </div>
+                </div>
+                <!-- new section put here -->
+
+            </div>
+        </section>
+    </section>
+
+    <div class="modal fade" id="basicInfoAddModal">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="text-dark">Add Personal Information</h6>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-4" id="basicInfo-form">
+
+
+                        <div class="col-md-4">
+                            <label for="">Create Profile for</label>
+                            <select class="form-control" id="profilefor" name="profilefor" required>
+                                <option disabled selected value="">Select</option>
+                                <option value="Groom">Groom</option>
+                                <option value="Bride">Bride</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="full-name">Full Name</label>
+                            <input class="form-control" type="text" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="full-name">Birth Name</label>
+                            <input class="form-control" type="text" id="birthname" name="birthname" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="birth-place">Birth Place(जन्म ठिकाण )</label>
+                            <input class="form-control" type="text" id="birthplace" name="birthplace" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dob">Date of Birth(जन्म तारीख)</label>
+                            <input type="date" class="form-control" id="dob" name="dateofbirth" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tob">Time of Birth(जन्म वेळ)</label>
+                            <input type="time" class="form-control" id="tob" name="timeofbirth" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="city">City</label>
+                            <select class="form-control" id="city" name="city" required>
+                                <option disabled selected value="">Select</option>
+                                <option value="Nashik">Nashik</option>
+                                <option value="Pune">Pune</option>
+                                <option value="Jalgaon">Jalgaon</option>
+                                <option value="Kolhapur">Kolhapur</option>
+                                <option value="Sambhajinanagr">Sambhajinanagr</option>
+                                <option value="Chalisgaon">Chalisgaon</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="education">Education</label>
+                            <select class="form-control" id="education" name="education" required>
+                                <option disabled selected value="">Select</option>
+                                <option value="Diploma">Diploma</option>
+                                <option value="Master Degree">Master Degree</option>
+                                <option value="Graduation">Graduation</option>
+                                <option value="12Th">12Th</option>
+                                <option value="10Th">10Th</option>
+                                <option value="Chalisgaon">Engineering</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="income">Annual Income(वार्षिक उत्पन्न )</label>
+                            <input type="number" class="form-control" id="income" name="income" placeholder="per annum"
+                                required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="blood-group">Blood Group</label>
+                            <select class="form-control" id="bloodgroup" name="bloodgroup" required>
+                                <option disabled selected value="">Select</option>
+                                <option value="A positive (A+)">A positive (A+)</option>
+                                <option value="A negative (A-)">A negative (A-)</option>
+                                <option value="B positive (B+)">B positive (B+)</option>
+                                <option value="B negative (B-)">B negative (B-)</option>
+                                <option value="AB positive (AB+)">AB positive (AB+)</option>
+                                <option value="AB negative (AB-)">AB negative (AB-)</option>
+                                <option value="O positive (O+)">O positive (O+)</option>
+                                <option value="O positive (O+)">O negative (O-)</option>
+
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="spectacles">Spectacles (चष्मा )</label>
+                            <select class="form-control" id="spectacles" name="spectacles" required>
+                                <option disabled selected value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+
+
+
+                        <div class="col-md-4">
+                            <label for="occupation">Occupation(व्यवसाय/नोकरी )</label>
+                            <input class="form-control" type="text" id="occupation" name="occupation" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="marital-status">Marital Status</label>
+                            <select class="form-control" id="maritalstatus" name="maritalstatus" required>
+                                <option disabled selected value="">Select</option>
+                                <option value="single">Single</option>
+                                <option value="divorced">Divorced</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="height">Height in cm (उंची सेंटी)</label>
+                            <input class="form-control" type="number" id="height" name="height" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="occupation-city">Occupation City(व्यवसाय शहर )</label>
+                            <input class="form-control" type="text" id="occupationcity" name="occupationcity" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="complexion">Complexion(वर्ण)</label>
+                            <input class="form-control" type="text" id="complexion" name="complexion" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="complexion">Disabled(अपंग )</label>
+                            <select class="form-control" id="disabled" name="disabled" required>
+                                <option disabled selected value="">Select</option>
+                                <option value="yes">yes</option>
+                                <option value="no">no</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="complexion">Address(पत्ता )</label>
+                            <textarea class="form-control" id="address" name="address"></textarea>
+                        </div>
+
+
+
+                        <div class="row border-top">
+                            <h6 class="text-dark p-3">Your contact details</h6>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="age-difference"> Email id </label>
+                                        <input class="form-control" type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="age-difference">Mobile number</label>
+                                        <input class="form-control" type="number" id="mobile" name="mobile" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                    <button class="btn btn-primary" type="submit"
+                        onclick="captureBasicDetails(); addFamilyBackground();" id="proceedToSecondModal"
+                        disabled>next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="familyinfoAddModal">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="text-dark">Add Family Information</h6>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="" class="row" id="familyInfo-form" enctype="multipart/form-data">
+                        <div class="col-md-12">
+                            <div class="row my-4">
+
+                                <input type="hidden" name="profilefor" id="profileforinput" value="">
+                                <input type="hidden" name="fullname" id="fullnameinput" value="">
+                                <input type="hidden" name="birthname" id="birthnameinput" value="">
+                                <input type="hidden" name="birthplace" id="birthplaceinput" value="">
+                                <input type="hidden" name="city" id="cityinput" value="">
+                                <input type="hidden" name="dob" id="dobinput" value="">
+                                <input type="hidden" name="tob" id="tobinput" value="">
+                                <input type="hidden" name="income" id="incomeinput" value="">
+                                <input type="hidden" name="education" id="educationinput" value="">
+                                <input type="hidden" name="bloodgroup" id="bloodgroupinput" value="">
+                                <input type="hidden" name="spectacles" id="spectaclesinput" value="">
+                                <input type="hidden" name="occupation" id="occupationinput" value="">
+                                <input type="hidden" name="complexion" id="complexioninput" value="">
+                                <input type="hidden" name="maritalstatus" id="maritalstatusinput" value="">
+                                <input type="hidden" name="height" id="heightinput" value="">
+                                <input type="hidden" name="occupationcity" id="occupationcityinput" value="">
+                                <input type="hidden" name="disabled" id="disabledinput" value="">
+                                <input type="hidden" name="address" id="addressinput" value="">
+                                <input type="hidden" name="email" id="emailinput" value="">
+                                <input type="hidden" name="mobile" id="mobileinput" value="">
+
+
+
+                                <div class="col-md-4">
+                                    <label for="father-name">Father's full Name</label>
+                                    <input class="form-control" type="text" id="fathername" name="fathername" required>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="mother-name">Mother's maher full Name</label>
+                                    <input class="form-control" type="text" id="mothername" name="mothername" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="mother-name">Father occupation</label>
+                                    <input class="form-control" type="text" id="fatheroccupation"
+                                        name="fatheroccupation" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="mother-name">Mother occupation</label>
+                                    <input class="form-control" type="text" id="motheroccupation"
+                                        name="motheroccupation" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="mother-name">Hudda</label>
+                                    <input class="form-control" type="text" id="hudda" name="hudda" required>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="maternal-uncle">Maternal Uncle(मामकूल )</label>
+                                    <input class="form-control" type="text" id="maternaluncle" name="maternaluncle"
+                                        required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="mother-name">Family members</label>
+                                    <input class="form-control" type="number" id="familymembers" name="familymembers"
+                                        required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="mother-name">Parents Address</label>
+                                    <textarea name="parentaddress" id="parentaddress" class="form-control"></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="mother-name">Profile Visibility</label>
+                                    <select name="profilevisibility" class="form-control" id="profilevisibility">
+                                        <option selected disabled value="">Select</option>
+                                        <option value="private">Private</option>
+                                        <option value="public">Public</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row border-top">
+                                <h6 class="text-dark p-3">Add Expectations</h6>
+                                <div class="col-md-12">
+                                    <label for="">Expectations</label>
+                                    <textarea name="expectation" id="expectation" class="form-control"></textarea>
+                                    <!-- <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="age-difference">Age Difference Upto:(In Year) </label>
+                                                    <input class="form-control" type="text" id="agedifference"
+                                                        name="agedifference" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="preferred-city">Preferred City:</label>
+                                                    <select class="form-control" id="preferredcity" name="preferredcity"
+                                                        required>
+                                                        <option disabled selected value="">Select</option>
+                                                        <option value="Nashik">Nashik</option>
+                                                        <option value="Pune">Pune</option>
+                                                        <option value="Jalgaon">Jalgaon</option>
+                                                        <option value="Kolhapur">Kolhapur</option>
+                                                        <option value="Sambhajinanagr">Sambhajinanagr</option>
+                                                        <option value="Chalisgaon">Chalisgaon</option>
+        
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="expected-height">Expected Height:</label>
+                                                    <input class="form-control" type="number" id="expectedheight"
+                                                        name="expectedheight" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="education-dropdown">Education:</label>
+                                                    <select class="form-control" id="herhiseducation" name="herhiseducation"
+                                                        required>
+                                                        <option disabled selected value="">Select</option>
+                                                        <option value="Diploma">Diploma</option>
+                                                        <option value="Master Degree">Master Degree</option>
+                                                        <option value="Graduation">Graduation</option>
+                                                        <option value="12Th">12Th</option>
+                                                        <option value="10Th">10Th</option>
+                                                        <option value="Chalisgaon">Engineering</option>
+        
+                                                    </select>
+                                                </div>
+                                            
+                                                
+                                            </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                    <button class="btn btn-danger" type="submit" onclick="submitFormData();">submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/registration.js"></script> -->
+
+    <!-- registeration and send request script -->
+    <script>
+
+
+        async function checkReq() {
+            // send request validation
+            const profileBtn = document.querySelectorAll(".ProfileBtn")
+
+            let message
+            await $.ajax({
+                type: 'GET',
+                url: '/checkfriendrequests',
+                success: function (response) {
+                    message = response.message
+                    console.log(response.message);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error sending friend request:', error);
+                }
+
+            })
+            console.log(message);
+            profileBtn.forEach((profile) => {
+                profile.innerHTML = ""
+                if (message === "Request already sent") {
+                    let atag = document.createElement("a")
+                    atag.href = "javascript:void(0)"
+                    atag.classList = "btn btn-outline-success"
+                    atag.innerText = "Request Already Sent"
+                    profile.appendChild(atag)
+                }
+                else if (message === "User already added") {
+                    let atag = document.createElement("a")
+                    atag.href = "javascript:void(0)"
+
+                    atag.classList = "btn btn-outline-danger"
+                    atag.innerText = "Show Contact Form"
+                    profile.appendChild(atag)
+
+                    atag.addEventListener('click', () => {
+                        $('#contact-collapse').collapse('toggle');
+                    })
+                }
+                else if (message === "User has sent you Friend Request") {
+                    let smsTag = document.createElement("h5")
+                    smsTag.classList = "mb-3"
+                    smsTag.innerText = "Request Received"
+
+                    // Reject Button
+                    let rejecttag = document.createElement("a")
+                    rejecttag.addEventListener("click", async () => {
+                        await $.ajax({
+                            type: 'POST',
+                            url: '/handleReject',
+                            success: function (response) {
+                                console.log(response.message);
+                                alert("Friend Request Rejected")
+                                checkReq()
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Error sending friend request:', error);
+                            }
+
+                        })
+                    })
+                    rejecttag.href = "javascript:void(0)"
+                    rejecttag.classList = "btn btn-outline-danger"
+                    rejecttag.innerText = "Reject Request"
+
+                    // Accept Button
+                    let accepttag = document.createElement("a")
+                    accepttag.addEventListener("click", async () => {
+                        await $.ajax({
+                            type: 'POST',
+                            url: '/handleAccept',
+                            success: function (response) {
+                                console.log(response.message);
+                                alert("Friend Request Accepted")
+                                checkReq()
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Error sending friend request:', error);
+                            }
+
+                        })
+                    })
+                    accepttag.href = "javascript:void(0)"
+                    accepttag.classList = "btn ml-3 btn-outline-success"
+                    accepttag.innerText = "Accept Request"
+
+                    profile.append(smsTag, rejecttag, accepttag)
+
+                }
+                else {
+                    let atag = document.createElement("a")
+                    atag.href = "/createprofile"
+                    atag.classList = "btn btn-outline-danger"
+                    atag.innerText = "Send Interest to view contact info"
+                    profile.appendChild(atag)
+                }
+
+            })
+        }
+
+        checkReq()
+
+        // generate pdf
+        function generatePdf() {
+            const element = document.getElementById("main_section")
+
+            html2pdf()
+                .from(element)
+                .save()
+        }
+
+        async function addProfile() {
+            try {
+                await $.ajax({
+                    type: 'GET',
+                    url: '/checkprofile', // Endpoint to check user profile existence
+                    success: async function (response) {
+                        if (response.message === 'User Profile Found') {
+                            $('#basicInfoAddModal').modal('hide');
+                            console.log("send request");
+
+                            // Add AJAX request to send friend request
+                            await $.ajax({
+                                type: 'PUT',
+                                url: '/sendRequest', // Endpoint to send friend request
+                                success: function (response) {
+                                    if (response.message === "You have Already Received Request") {
+                                        alert("You have Already Received Request")
+                                        window.location.reload()
+                                    } else {
+                                        alert('Friend request sent successfully');
+                                        window.location.reload()
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    console.error('Error sending friend request:', error);
+                                }
+                            });
+                        } else {
+                            $('#basicInfo-form').trigger('reset');
+                            $('#basicInfoAddModal').modal('show');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            } catch (error) {
+                console.error('Error adding profile:', error);
+            }
+        }
+
+        function captureBasicDetails() {
+
+
+            const profilefor = document.getElementById('profilefor').value;
+            //  basicDetails['profilefor']=profilefor
+            const fullname = document.getElementById('fullname').value;
+            const birthname = document.getElementById('birthname').value;
+            const birthplace = document.getElementById('birthplace').value;
+            const disabled = document.getElementById('disabled').value;
+            const address = document.getElementById('address').value;
+            //  basicDetails['fullname']=fullname
+            const city = document.getElementById('city').value;
+            //  basicDetails['city']=city
+            const dob = document.getElementById('dob').value;
+            const tob = document.getElementById('tob').value;
+            //  basicDetails['dob']=dob
+            const income = document.getElementById('income').value;
+            //  basicDetails['income']=income
+            const education = document.getElementById('education').value;
+            //  basicDetails['education']=education
+            const bloodgroup = document.getElementById('bloodgroup').value;
+            //  basicDetails['bloodgroup']=bloodgroup
+            const spectacles = document.getElementById('spectacles').value;
+            //  basicDetails['spectacles']=spectacles
+
+            //  basicDetails['gotradevak']=gotradevak
+
+            //  basicDetails['birthplace']=birthplace
+            const occupation = document.getElementById('occupation').value;
+            //  basicDetails['occupation']=occupation
+            const maritalstatus = document.getElementById('maritalstatus').value;
+            //  basicDetails['maritalstatus']=maritalstatus
+            const height = document.getElementById('height').value;
+            //  basicDetails['height']=height
+            const occupationcity = document.getElementById('occupationcity').value;
+            //  basicDetails['occupationcity']=occupationcity
+            const complexion = document.getElementById('complexion').value;
+            //  basicDetails['complexion']=complexion
+
+            //  basicDetails['mangal']=mangal
+
+            //  basicDetails['horoimage']=horoimage
+
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            //  basicDetails['residentcity']=residentcity
+
+
+
+            document.getElementById("profileforinput").value = profilefor;
+            document.getElementById("fullnameinput").value = fullname;
+            document.getElementById("birthnameinput").value = birthname;
+            document.getElementById("birthplaceinput").value = birthplace;
+            document.getElementById("cityinput").value = city;
+            document.getElementById("dobinput").value = dob;
+            document.getElementById("tobinput").value = tob;
+            document.getElementById("disabledinput").value = disabled;
+            document.getElementById("addressinput").value = address;
+            document.getElementById("incomeinput").value = income;
+            document.getElementById("educationinput").value = education;
+            document.getElementById("bloodgroupinput").value = bloodgroup;
+            document.getElementById("spectaclesinput").value = spectacles;
+            document.getElementById("birthplaceinput").value = birthplace;
+            document.getElementById("occupationinput").value = occupation;
+            document.getElementById("complexioninput").value = complexion;
+            document.getElementById("maritalstatusinput").value = maritalstatus;
+            document.getElementById("heightinput").value = height;
+            document.getElementById("occupationcityinput").value = occupationcity;
+            document.getElementById("emailinput").value = email;
+            document.getElementById("mobileinput").value = mobile;
+        }
+
+        // Function to update the Next button state
+        function updateNextbuttonstate() {
+
+            const profilefor = $('#profilefor').val();
+            const fullname = $('#fullname').val();
+            const birthname = $('#birthname').val();
+            const birthplace = $('#birthplace').val();
+            const city = $('#city').val();
+            const dob = $('#dob').val();
+            const tob = $('#tob').val();
+            const disabled = $('#disabled').val();
+            const address = $('#address').val();
+            const income = $('#income').val();
+            const education = $('#education').val();
+            const bloodgroup = $('#bloodgroup').val();
+            const spectacles = $('#spectacles').val();
+            const occupation = $('#occupation').val();
+            const maritalstatus = $('#maritalstatus').val();
+            const height = $('#height').val();
+            const occupationcity = $('#occupationcity').val();
+            const complexion = $('#complexion').val();
+
+            const email = $('#email').val();
+            const mobile = $('#mobile').val();
+
+
+
+            if (
+                profilefor &&
+                fullname &&
+                birthname &&
+                birthplace &&
+                city &&
+                dob &&
+                tob &&
+                disabled &&
+                address &&
+                income &&
+                education &&
+                bloodgroup &&
+                spectacles &&
+                birthplace &&
+                occupation &&
+                maritalstatus &&
+                height &&
+                occupationcity &&
+                complexion &&
+                email &&
+                mobile
+            ) {
+                $('#proceedToSecondModal').prop('disabled', false);
+            } else {
+                $('#proceedToSecondModal').prop('disabled', true);
+            }
+        }
+
+
+        $('#basicInfoAddModal').on('show.bs.modal', function () {
+            $('#proceedToSecondModal').prop('disabled', true);
+        });
+
+
+        $('#basicInfo-form input, #basicInfo-form select').on('input change', function () {
+            updateNextbuttonstate();
+        });
+
+
+        function addFamilyBackground() {
+            $('#familyInfo-form').trigger('reset');
+            $('#familyinfoAddModal').modal('show');
+        }
+
+        function submitFormData() {
+
+            const basicInfo = {
+                profilefor: document.getElementById('profileforinput').value,
+                fullname: document.getElementById('fullnameinput').value,
+                birthname: document.getElementById('birthnameinput').value,
+                birthplace: document.getElementById("birthplaceinput").value,
+                city: document.getElementById("cityinput").value,
+                dateofbirth: document.getElementById("dobinput").value,
+                timeofbirth: document.getElementById("tobinput").value,
+                disabled: document.getElementById("disabledinput").value,
+                address: document.getElementById("addressinput").value,
+                income: document.getElementById("incomeinput").value,
+                education: document.getElementById("educationinput").value,
+                bloodgroup: document.getElementById("bloodgroupinput").value,
+                spectacles: document.getElementById("spectaclesinput").value,
+                occupation: document.getElementById("occupationinput").value,
+                complexion: document.getElementById("complexioninput").value,
+                maritalstatus: document.getElementById("maritalstatusinput").value,
+                height: document.getElementById("heightinput").value,
+                occupationcity: document.getElementById("occupationcityinput").value,
+                email: document.getElementById("emailinput").value,
+                mobile: document.getElementById("mobileinput").value,
+            };
+
+            // Gather data from the second modal
+            const familyInfo = {
+                fathername: document.getElementById('fathername').value,
+                mothername: document.getElementById('mothername').value,
+                maternaluncle: document.getElementById('maternaluncle').value,
+                parentaddress: document.getElementById('parentaddress').value,
+                familymembers: document.getElementById('familymembers').value,
+                hudda: document.getElementById('hudda').value,
+                fatheroccupation: document.getElementById('fatheroccupation').value,
+                motheroccupation: document.getElementById('motheroccupation').value,
+                profilevisibility: document.getElementById("profilevisibility").value,
+                expectation: document.getElementById('expectation').value,
+                // agedifference: document.getElementById('agedifference').value,
+                // preferredcity: document.getElementById('preferredcity').value,
+                // expectedheight: document.getElementById('expectedheight').value,
+                // herhiseducation: document.getElementById('herhiseducation').value,
+                // Add other fields as needed
+            };
+            // Combine data from both modals
+            const formData = { ...basicInfo, ...familyInfo };
+
+            // Send data to the server using AJAX
+            $.ajax({
+                type: 'POST',
+                url: '/addprofile', // Update the URL with your server endpoint
+                data: formData,
+                success: function (response) {
+                    // Handle success response
+                    console.log(response);
+                    $('#basicInfoAddModal').modal('hide');
+                    $('#familyinfoAddModal').modal('hide');
+                    $('.toast').toast('show');
+                    window.location.href = '/uploadphoto';
+                },
+                error: function (xhr, status, error) {
+                    // Handle error
+                    console.error(error);
+                }
+            });
+        }
+
+
+    </script>
+</body>
+
+
+</html>
