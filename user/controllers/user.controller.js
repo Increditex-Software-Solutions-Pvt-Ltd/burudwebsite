@@ -565,13 +565,13 @@ const userController = {
                 const transporter = await nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'nishantphule12@gmail.com',
+                        user: 'burudbandhan@gmail.com',
                         pass: EMAIL_PASS
                     }
                 });
 
                 const mailOptions = {
-                    from: 'nishantphule12@gmail.com', // sender address
+                    from: 'burudbandhan@gmail.com', // sender address
                     to: email, // list of receivers
                     text: ` Click the link to reset password ${resetLink}`,
                     html: ` Click the link to reset password <a href=${resetLink}>Click here</a></h2>`
@@ -765,13 +765,13 @@ const userController = {
                 const transporter = await nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'nishantphule12@gmail.com',
+                        user: 'burudbandhan@gmail.com',
                         pass: EMAIL_PASS
                     }
                 });
 
                 const mailOptions = {
-                    from: 'nishantphule12@gmail.com', // sender address
+                    from: 'burudbandhan@gmail.com', // sender address
                     to: receiver.email, // list of receivers
                     text: `${sender.firstname} ${sender.lastname} has sent you request`,
                 };
@@ -796,13 +796,13 @@ const userController = {
                 const transporter = await nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'nishantphule12@gmail.com',
+                        user: 'burudbandhan@gmail.com',
                         pass: EMAIL_PASS
                     }
                 });
 
                 const mailOptions = {
-                    from: 'nishantphule12@gmail.com', // sender address
+                    from: 'burudbandhan@gmail.com', // sender address
                     to: receiver.email, // list of receivers
                     text: `${sender.firstname} ${sender.lastname} has sent you Request`,
                 };
@@ -887,13 +887,13 @@ const userController = {
                 const transporter = await nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'nishantphule12@gmail.com',
+                        user: 'burudbandhan@gmail.com',
                         pass: EMAIL_PASS
                     }
                 });
 
                 const mailOptions = {
-                    from: 'nishantphule12@gmail.com', // sender address
+                    from: 'burudbandhan@gmail.com', // sender address
                     to: email, // list of receivers
                     text: ` Your One Time Password for Registeration is ${otp}`,
                 };
@@ -946,13 +946,13 @@ const userController = {
                 const transporter = await nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'nishantphule12@gmail.com',
+                        user: 'burudbandhan@gmail.com',
                         pass: EMAIL_PASS
                     }
                 });
 
                 const mailOptions = {
-                    from: 'nishantphule12@gmail.com', // sender address
+                    from: 'burudbandhan@gmail.com', // sender address
                     to: updateSender.email, // list of receivers
                     text: `${receiver.firstname} ${receiver.lastname} has accepted your Request`,
                 };
@@ -983,13 +983,13 @@ const userController = {
                 const transporter = await nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'nishantphule12@gmail.com',
+                        user: 'burudbandhan@gmail.com',
                         pass: EMAIL_PASS
                     }
                 });
 
                 const mailOptions = {
-                    from: 'nishantphule12@gmail.com', // sender address
+                    from: 'burudbandhan@gmail.com', // sender address
                     to: updateSender.email, // list of receivers
                     text: `${receiver.firstname} ${receiver.lastname} has accepted your Request`,
                 };
@@ -1055,13 +1055,13 @@ const userController = {
             const transporter = await nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'nishantphule12@gmail.com',
+                    user: 'burudbandhan@gmail.com',
                     pass: EMAIL_PASS
                 }
             });
 
             const mailOptions = {
-                from: 'nishantphule12@gmail.com', // sender address
+                from: 'burudbandhan@gmail.com', // sender address
                 to: updateSender.email, // list of receivers
                 text: `${receiver.firstname} ${receiver.lastname} has rejected your Request`,
             };

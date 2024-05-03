@@ -214,13 +214,13 @@ const adminController = {
                     const transporter = await nodemailer.createTransport({
                         service: 'gmail',
                         auth: {
-                            user: 'nishantphule12@gmail.com',
+                            user: 'burudbandhan@gmail.com',
                             pass: EMAIL_PASS
                         }
                     });
 
                     const mailOptions = {
-                        from: 'nishantphule12@gmail.com', // sender address
+                        from: 'burudbandhan@gmail.com', // sender address
                         to: user.email, // list of receivers
                         text: `
                     Congratulations !!
@@ -291,13 +291,13 @@ const adminController = {
                     const transporter = await nodemailer.createTransport({
                         service: 'gmail',
                         auth: {
-                            user: 'nishantphule12@gmail.com',
+                            user: 'burudbandhan@gmail.com',
                             pass: EMAIL_PASS
                         }
                     });
 
                     const mailOptions = {
-                        from: 'nishantphule12@gmail.com', // sender address
+                        from: 'burudbandhan@gmail.com', // sender address
                         to: user.email, // list of receivers
                         text: `
                     Your Registration Application for Burud Bandhan is rejected by Admin.

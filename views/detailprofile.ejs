@@ -798,7 +798,11 @@
                 }
                 else {
                     let atag = document.createElement("a")
-                    atag.href = "/createprofile"
+                    atag.href = "javascript:void(0)"
+                    atag.addEventListener("click",()=>{
+                         addProfile();
+                         checkReq();
+                    })
                     atag.classList = "btn btn-outline-danger"
                     atag.innerText = "Send Interest to view contact info"
                     profile.appendChild(atag)
@@ -846,8 +850,7 @@
                                 }
                             });
                         } else {
-                            $('#basicInfo-form').trigger('reset');
-                            $('#basicInfoAddModal').modal('show');
+                           window.location.href='/createprofile'
                         }
                     },
                     error: function (xhr, status, error) {
