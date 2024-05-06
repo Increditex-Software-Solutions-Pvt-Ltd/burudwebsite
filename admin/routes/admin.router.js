@@ -19,5 +19,4 @@ adminRouter.get("/address_book", getadressBookPage);
 adminRouter.get("/advertise", getaddvertisepage);
 
 
-
 module.exports = {adminRouter}
