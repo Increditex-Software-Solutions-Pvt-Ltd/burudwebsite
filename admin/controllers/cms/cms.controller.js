@@ -1,5 +1,6 @@
 const { uploadMember } = require("../../../config/multerconfig");
 const { About } = require("../../models/Aboutcms.model");
+const { Advertise } = require("../../models/Advertise.model");
 const { Member } = require("../../models/Membercms.model");
 const { Review } = require("../../models/Review.model");
 const { Successstory } = require("../../models/Successstory.model");
@@ -425,4 +426,99 @@ const deleteVideo=async(req,res)=>{
   }
  
 
- module.exports = {addAboutpage,getAboutUpdateForm,addMember,getMemberUpdateForm,updateMember,updateAbout,deleteMember,addSuccessStory,getStoryUpdateForm,updateStory,deleteStory,addSuccessVideo,getVideoUpdateForm,updateVideo,deleteVideo,addReview,getReviewUpdateForm,updateReview,deleteReview}
+  const addAdvertise=async(req,res)=>{
+    try {
+       uploadMember.single('advertisepic')(req, res, async function (err) {
+               if (err) {
+                   return res.status(400).json({ message: 'advertise pic upload failed' });
+               }
+   
+           
+               const { advertisename,advertisedesc } = req.body;
+               const advertisepic = req.file ? req.file.path : null;
+   
+               const newMember = await Advertise.create({
+                  advertisename,advertisepic,advertisedesc
+               });
+   
+               return res.redirect('/admin/advertise'); 
+           });
+       } catch (error) {
+           console.error(error);
+           res.status(500).json({ message: 'Failed to add YouTube video' });
+       }
+ }
+ const updateAdvertise = async (req, res) => {
+    try {
+       const adId = req.params.id;
+ 
+       // Assuming you have a function like `findById` to find the YouTube video by ID
+       const existingAdd = await Advertise.findByPk(adId);
+ 
+       if (!existingAdd) {
+           return res.status(404).json({ message: 'advertise not found' });
+       }
+ 
+       uploadMember.single('advertisepic')(req, res, async function (err) {
+           if (err) {
+               return res.status(400).json({ message: 'file upload failed' });
+           }
+ 
+           const { advertisename,advertisedesc } = req.body;
+ 
+           // Check if a new thumbnail file is uploaded
+           if (req.file) {
+               existingAdd.advertisepic = req.file.path;
+           }
+ 
+           existingAdd.advertisename = advertisename;
+           existingAdd.advertisedesc = advertisedesc;
+ 
+           await existingAdd.save();
+ 
+           return res.redirect('/admin/advertise'); 
+       });
+   } catch (error) {
+       console.error(error);
+       res.status(500).json({ message: 'Failed to update Advertise' });
+   }
+ }
+ 
+ const deleteAdvertise=async(req,res)=>{
+    try {
+        const advertiseId = req.params.id;
+  
+        const advertise = await Advertise.findByPk(advertiseId);
+  
+        if(!advertise){
+          return res.status(404).json({ success: false, message: 'advertise not found'});
+        }
+  
+        await advertise.destroy();
+  
+        return res.redirect("/admin/advertise")
+    } catch (error) {
+      console.error('Error deleting advertise:', error);
+      res.status(500).json({ success: false, message: 'Failed to delete advertise' });
+    }
+  }
+
+  const getAdvertiseForm=async(req,res)=>{
+
+    const {id} = req.params;
+   try {
+       const advertise = await Advertise.findByPk(id);
+       
+       if(advertise){
+         res.json({success:true,data:advertise})
+       }
+       else{
+        res.json({success:false,message:"advertise record not found"});
+       }
+   } catch (error) {
+    console.error('Error updating advertise', error);
+    res.status(500).json({ success: false, message: 'Failed to update advertise' });
+   }
+}
+
+ module.exports = {addAboutpage,getAboutUpdateForm,addMember,getMemberUpdateForm,updateMember,updateAbout,deleteMember,addSuccessStory,getStoryUpdateForm,updateStory,deleteStory,addSuccessVideo,getVideoUpdateForm,updateVideo,deleteVideo,addReview,getReviewUpdateForm,updateReview,deleteReview,addAdvertise,updateAdvertise,getAdvertiseForm,deleteAdvertise}

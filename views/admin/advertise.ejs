@@ -1,0 +1,173 @@
+<%- include('./header.ejs');%>
+
+	<div class="content container-fluid">
+		<!-- Page Header -->
+		<div class="page-header">
+			<div class="row align-items-center">
+				<div class="col">
+					<h1 class="page-header-title">
+						Manage Advertise</h1>
+				</div>
+				<!-- End Col -->
+				<div class="col-auto">
+					
+					<a class="btn btn-sm btn-success" href="javascript:void(0)" onclick="addAdvertise()">
+						<i class="bi-plus-circle me-1"></i>
+						Add
+					</a>
+					
+				</div>
+				<!-- End Col -->
+			</div>
+			<!-- End Row -->
+		</div>
+		<!-- End Page Header -->
+
+		<div class="menu-table-filters">
+			<div class="row g-3">
+				<div class="col-12 col-md-3">
+					<div class="input-group input-group-sm">
+						<div class="input-group-text">
+							<i class="bi-search"></i>
+						</div>
+						<input type="search" class="form-control menu-table-search" placeholder="Search here">
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="table-responsive">
+			<table id="menu-table" class="table table-bordered table-nowrap table-align-middle">
+				<thead class="thead-light" align="left">
+					<tr>
+					
+						<th>Action</th>
+						<th>
+							 Advertise photo
+						</th>
+						<th>
+                            advertise title						
+						</th>
+						<th>
+							advertise Description
+						</th>
+						
+								
+						
+					</tr>
+				</thead>
+		        <tbody>
+					<% advertisements.forEach((item)=>{%>
+						<tr class="menu-row">
+							<td>
+								
+									<button class="btn btn-dark text-center p-2"
+										onclick="editAdvertise('<%-item.id%>')">
+										<i class="bi-pencil-square mx-1"></i>Edit
+									</button>
+									<button class="btn btn-danger text-center p-2"
+										onclick="confirmDeleteAdvertise('<%-item.id%>')">
+										<i class="bi-trash mx-1"></i> Delete
+									</button>
+								
+
+							</td>
+							<td>
+								 <img src="http://localhost:5000/<%= item.advertisepic.replace(/\\/g, '/')%>" class="img-fluid" height="220" width="180" alt="">
+							</td>
+							<td>
+								<h5 class="text-danger">
+									<%= item.advertisename %>
+								</h5>
+							</td>
+							
+							
+							<td class="w-75">
+								<p>
+									<%= item.advertisedesc %>
+								</p>
+							</td>
+						
+						</tr>
+						<%})%>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="menu-table-footer"></div>
+	</div>
+	<!-- End Content -->
+
+	<%- include('./footer.ejs');%>
+
+	<script>
+		let customerListTable = false;
+		customerListTable = $("#menu-table").DataTable({
+		  lengthChange: true,
+		  columnDefs: [
+			{
+			  targets: [0],
+			  orderable: false,
+			},
+		  ],
+		  order: [
+			[1, "desc"],
+			[0, "desc"],
+		  ],
+		  initComplete: function (settings, json) {
+			$(".dataTables_filter").hide();
+			$(".menu-table-footer")
+			  .append($("#menu-table_wrapper .row:last-child()"))
+			  .find(".previous")
+			  .addClass("ms-md-auto");
+			$(".dataTables_info").before(
+			  $(".dataTables_length")
+				.find("label")
+				.attr("class", "d-inline-flex text-nowrap align-items-center gap-2")
+			);
+			$(".menu-table-search").on("input", function () {
+			  customerListTable.search(this.value).draw();
+			});
+			this.api()
+			  .table()
+			  .buttons()
+			  .container()
+			  .find(".btn-secondary")
+			  .removeClass("btn-secondary");
+			this.api()
+			  .table()
+			  .buttons()
+			  .container()
+			  .appendTo($(".menu-table-filters .export-buttons"));
+		  },
+		  buttons: [
+			{
+			  extend: "collection",
+			  text: '<i class="bi bi-cloud-download-fill"></i>',
+			  className: "btn-sm btn-outline-primary",
+			  buttons: [
+				{
+				  extend: "copy",
+				  text: '<i class="bi-clipboard2-check dropdown-item-icon"></i> Copy',
+				},
+				{
+				  extend: "excel",
+				  text: '<i class="bi-filetype-xlsx dropdown-item-icon"></i> Excel',
+				},
+				{
+				  extend: "csv",
+				  text: '<i class="bi-filetype-csv dropdown-item-icon"></i> CSV',
+				},
+				{
+				  extend: "pdf",
+				  text: '<i class="bi-filetype-pdf dropdown-item-icon"></i> PDF',
+				},
+				{
+				  extend: "print",
+				  text: '<i class="bi-printer dropdown-item-icon"></i> Print',
+				},
+			  ],
+			},
+		  ],
+		});
+	  </script>

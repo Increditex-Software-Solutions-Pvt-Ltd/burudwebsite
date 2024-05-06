@@ -14,6 +14,7 @@ const { Successstory } = require('../../admin/models/Successstory.model');
 const { Successvideo } = require('../../admin/models/Successvideo.model');
 const { Op } = require('sequelize');
 const { Review } = require('../../admin/models/Review.model');
+const { Advertise } = require('../../admin/models/Advertise.model');
 
 
 const userController = {
@@ -23,6 +24,7 @@ const userController = {
             // Check if the user is authenticated
             const token = req.cookies.userJwt;
             const reviews = await Review.findAll();
+            const ads = await Advertise.findAll();
 
             if (token) {
                 try {
@@ -41,7 +43,7 @@ const userController = {
                     ] })
                     if (user) {
 
-                        return res.render('index', { user, userprofile,successStories,reviews });
+                        return res.render('index', { user, userprofile,successStories,reviews,ads });
                     }
                 } catch (err) {
 
@@ -49,7 +51,7 @@ const userController = {
                 }
             }
 
-            return res.render('index', { user: null ,reviews}); // Render without user information
+            return res.render('index', { user: null ,reviews,ads}); // Render without user information
         } catch (error) {
             console.error('Error executing Sequelize query: ', error);
             res.status(500).send('Internal Server Error');

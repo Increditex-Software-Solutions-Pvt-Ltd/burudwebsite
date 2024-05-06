@@ -1579,19 +1579,24 @@
                                         <p class="text-center fs-1">---💌---</p>
                                     </div>
                                     <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                                      <%reviews.forEach((review)=>{%>
-                                        <div class="testimonial-item text-center">
-                                            <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
-                                                src="<%= review.profilepic%>" style="width: 100px; height: 100px; object-fit: cover;">
-                                            <div class="testimonial-text rounded text-center p-4">
-                                                <p><%= review.reviewDesc%></p>
-                                                <h5 class="mb-1"><%= review.profilename%></h5>
-                                               
+                                        <%reviews.forEach((review)=>{%>
+                                            <div class="testimonial-item text-center">
+                                                <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
+                                                    src="<%= review.profilepic%>"
+                                                    style="width: 100px; height: 100px; object-fit: cover;">
+                                                <div class="testimonial-text rounded text-center p-4">
+                                                    <p>
+                                                        <%= review.reviewDesc%>
+                                                    </p>
+                                                    <h5 class="mb-1">
+                                                        <%= review.profilename%>
+                                                    </h5>
+
+                                                </div>
                                             </div>
-                                        </div>
-                                      <%})%>
-                                      
-                                        
+                                            <%})%>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -1624,64 +1629,82 @@
                             <!--FAQs strat here -->
                             <h1 class="text-center fs-3 mt-5 specierfont">FAQs</h1>
                             <div class="accordion">
-                               
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion1">
-                                        <label for="accordion1" class="accordion-item-title"><span
-                                                class="icon"></span>बुरुड बंधन ह्या WEBSITE / app द्वारे नोंदणी करण्यासाठी काही शुल्क/रक्कम आकारली जाते का?</label>
-                                        <div class="accordion-item-desc">नाही. अखिल महाराष्ट्र बुरुड समाज वधू वर सूचक समिती हि पूर्णपणे विनामूल्य काम करणारी संस्था आहे. सदर संस्थासंचालित “ बुरुड बंधन” ह्या WEBSITE /app द्वारे नोंदणी करण्यासाठी कुठलीही शुल्क व रक्कम आकारली जात नाही. आणि अश्या पद्धतीने पैसे मागणाऱ्या कुठल्याही संस्थेचा अखिल महराष्ट्र बुरुड समाज वधू वर सूचक समिती सबंध नाही. </div>
-                                    </div>
 
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion2">
-                                        <label for="accordion2" class="accordion-item-title"><span
-                                                class="icon"></span>सदर app आपल्या येथे सर्वजातीय मराठी स्थळे उपलब्ध आहेत का?</label>
-                                        <div class="accordion-item-desc">नाही. सदर संस्था हि केवळ आणि केवळ बुरुड समाजाविषयी काम करत असते. </div>
-                                    </div>
-
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion3">
-                                        <label for="accordion3" class="accordion-item-title"><span
-                                                class="icon"></span>बुरुड बंधन ह्या  वेबसाइट/अँप चा वापर कसा करावा?</label>
-                                        <div class="accordion-item-desc">बुरुड बंधन  वेबसाइट वापरण्यासाठी अथवा नावनोंदणी करण्यासाठी आपण www.burudbandhan.in या संकेतस्थळावर (वेबसाइटवर) जाऊन भेट देऊ शकता. तसेच Google Play Store वर जाऊन सदर ANDROID app इन्स्टॉल करू शकता.</div>
-                                    </div>
-
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion4">
-                                        <label for="accordion4" class="accordion-item-title"><span
-                                                class="icon"></span>सदर app/WEBSITE वर नाव-नोंदणी करण्यसाठी काय करावे?</label>
-                                        <div class="accordion-item-desc">सदर app/WEBSITE वर नोंदणी करण्यसाठी दोन पध्दतीने देऊ शकतो:
-                                            १.	सामान्य नोंदणी (सर्व समाजबांधवांसाठी)- (FLOWCHART देणे)
-                                            २.	विशेष नोंदणी (केवळ वधू वरांसाठी)- (FLOWCHART देणे)
-                                            </div>
-                                    </div>
-
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion5">
-                                        <label for="accordion5" class="accordion-item-title"><span
-                                                class="icon"></span>. समितीच्या/ऍडमिनच्या अनुमतीशिवाय किंवा केवळ नावनोंदणी केल्यावर लगेचच माझी प्रोफाइल सर्वासाठी खुली अथवा उपलब्ध होते का?</label>
-                                        <div class="accordion-item-desc">नाही. प्रथमतः आपण नावनोंदणी केल्यानंतर आमचे समिती प्रतिनिधी आपल्या नावाची व भरलेली महितीची पडताळणी करुण प्रोफाईल सर्वांसाठी उपलब्ध करून देतील. समाजबांधवांच्या सुरक्षेच्या दृष्टीने हे महत्वाचे असल्याने हे करणे गरजेचे असते.</div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion6">
-                                        <label for="accordion6" class="accordion-item-title"><span
-                                                class="icon"></span>मोबाईल नंबर नोंदविण्याच्या दृष्टीने काही मर्यादा आहेत का?</label>
-                                        <div class="accordion-item-desc">हो, एका क्रमांकावरून फक्त तुम्ही एका कुटुंबाची माहिती नोंदवू शकतात.</div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion7">
-                                        <label for="accordion7" class="accordion-item-title"><span
-                                                class="icon"></span>वधू-वरांसाठी नोंदणी केल्यवर लगेचच आपल्याला समोरच्या व्यक्तीचा संपर्क क्रमांक मिळेल का?</label>
-                                        <div class="accordion-item-desc">: नाही, आपण समोरील स्थळाविषयी आवड दाखविल्यानंतर समोरील व्यक्ती आपल्या प्रोफाईलचा अभ्यास करून आपल्याला संपर्क क्रमांक देण्यासाठी क्लिक करेल. त्यानंतर आपल्याला त्यांचा क्रमांक मिळेल.</div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <input type="checkbox" id="accordion8">
-                                        <label for="accordion8" class="accordion-item-title"><span
-                                                class="icon"></span>प्रोफाईलमधील SIMPLE SEARCH चा वापर कसा करावा?</label>
-                                        <div class="accordion-item-desc">(FLOWCHART देणे)</div>
-                                    </div>
-
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion1">
+                                    <label for="accordion1" class="accordion-item-title"><span class="icon"></span>बुरुड
+                                        बंधन ह्या WEBSITE / app द्वारे नोंदणी करण्यासाठी काही शुल्क/रक्कम आकारली जाते
+                                        का?</label>
+                                    <div class="accordion-item-desc">नाही. अखिल महाराष्ट्र बुरुड समाज वधू वर सूचक समिती
+                                        हि पूर्णपणे विनामूल्य काम करणारी संस्था आहे. सदर संस्थासंचालित “ बुरुड बंधन”
+                                        ह्या WEBSITE /app द्वारे नोंदणी करण्यासाठी कुठलीही शुल्क व रक्कम आकारली जात
+                                        नाही. आणि अश्या पद्धतीने पैसे मागणाऱ्या कुठल्याही संस्थेचा अखिल महराष्ट्र बुरुड
+                                        समाज वधू वर सूचक समिती सबंध नाही. </div>
                                 </div>
+
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion2">
+                                    <label for="accordion2" class="accordion-item-title"><span class="icon"></span>सदर
+                                        app आपल्या येथे सर्वजातीय मराठी स्थळे उपलब्ध आहेत का?</label>
+                                    <div class="accordion-item-desc">नाही. सदर संस्था हि केवळ आणि केवळ बुरुड समाजाविषयी
+                                        काम करत असते. </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion3">
+                                    <label for="accordion3" class="accordion-item-title"><span class="icon"></span>बुरुड
+                                        बंधन ह्या वेबसाइट/अँप चा वापर कसा करावा?</label>
+                                    <div class="accordion-item-desc">बुरुड बंधन वेबसाइट वापरण्यासाठी अथवा नावनोंदणी
+                                        करण्यासाठी आपण www.burudbandhan.in या संकेतस्थळावर (वेबसाइटवर) जाऊन भेट देऊ
+                                        शकता. तसेच Google Play Store वर जाऊन सदर ANDROID app इन्स्टॉल करू शकता.</div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion4">
+                                    <label for="accordion4" class="accordion-item-title"><span class="icon"></span>सदर
+                                        app/WEBSITE वर नाव-नोंदणी करण्यसाठी काय करावे?</label>
+                                    <div class="accordion-item-desc">सदर app/WEBSITE वर नोंदणी करण्यसाठी दोन पध्दतीने
+                                        देऊ शकतो:
+                                        १. सामान्य नोंदणी (सर्व समाजबांधवांसाठी)- (FLOWCHART देणे)
+                                        २. विशेष नोंदणी (केवळ वधू वरांसाठी)- (FLOWCHART देणे)
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion5">
+                                    <label for="accordion5" class="accordion-item-title"><span class="icon"></span>.
+                                        समितीच्या/ऍडमिनच्या अनुमतीशिवाय किंवा केवळ नावनोंदणी केल्यावर लगेचच माझी
+                                        प्रोफाइल सर्वासाठी खुली अथवा उपलब्ध होते का?</label>
+                                    <div class="accordion-item-desc">नाही. प्रथमतः आपण नावनोंदणी केल्यानंतर आमचे समिती
+                                        प्रतिनिधी आपल्या नावाची व भरलेली महितीची पडताळणी करुण प्रोफाईल सर्वांसाठी उपलब्ध
+                                        करून देतील. समाजबांधवांच्या सुरक्षेच्या दृष्टीने हे महत्वाचे असल्याने हे करणे
+                                        गरजेचे असते.</div>
+                                </div>
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion6">
+                                    <label for="accordion6" class="accordion-item-title"><span
+                                            class="icon"></span>मोबाईल नंबर नोंदविण्याच्या दृष्टीने काही मर्यादा आहेत
+                                        का?</label>
+                                    <div class="accordion-item-desc">हो, एका क्रमांकावरून फक्त तुम्ही एका कुटुंबाची
+                                        माहिती नोंदवू शकतात.</div>
+                                </div>
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion7">
+                                    <label for="accordion7" class="accordion-item-title"><span
+                                            class="icon"></span>वधू-वरांसाठी नोंदणी केल्यवर लगेचच आपल्याला समोरच्या
+                                        व्यक्तीचा संपर्क क्रमांक मिळेल का?</label>
+                                    <div class="accordion-item-desc">: नाही, आपण समोरील स्थळाविषयी आवड दाखविल्यानंतर
+                                        समोरील व्यक्ती आपल्या प्रोफाईलचा अभ्यास करून आपल्याला संपर्क क्रमांक देण्यासाठी
+                                        क्लिक करेल. त्यानंतर आपल्याला त्यांचा क्रमांक मिळेल.</div>
+                                </div>
+                                <div class="accordion-item">
+                                    <input type="checkbox" id="accordion8">
+                                    <label for="accordion8" class="accordion-item-title"><span
+                                            class="icon"></span>प्रोफाईलमधील SIMPLE SEARCH चा वापर कसा करावा?</label>
+                                    <div class="accordion-item-desc">(FLOWCHART देणे)</div>
+                                </div>
+
+                            </div>
 
 
 
@@ -1832,19 +1855,42 @@
                             <!-- Back to Top -->
                             <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
                                     class="bi bi-arrow-up"></i></a>
-                            <div id="myModal" class="modal animate__animated animate__bounceInDown">
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <div class="d-flex justify-content-center flex-row align-items-center">
-                                        <span class="mr-2 text-danger"
-                                            style="font-size: 21px; font-weight: 600;">BURUD</span>
-                                        <img src="/img/burud_logo.png" class="img-fluid" width="120px" alt="">
-                                        <span class="ml-2 text-success"
-                                            style="font-size: 21px; font-weight: 600;">BANDHAN</span>
-                                    </div>
-                                    <p id="wishText"></p>
+
+
+                            <div class="modal animate__animated animate__bounceInDown" id="myModal">
+                                <div class="modal-dialog modal-lg">
+                                     <div class="modal-content">
+                                         <div class="modal-body">
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-8 col-8">
+                                                    <div class="row flex-column slideads">
+                                                        <%ads.forEach((advertise)=>{%>
+                                                           
+                                                            <div class="col-12" style="height: 380px;">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h5 class="text-dark"><%= advertise.advertisename %></h5>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <img src="<%= advertise.advertisepic%>"
+                                                                        class="d-block w-100" height="100%" alt="...">
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                          
+                                                            <%})%>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                         </div>
+                                     </div>
                                 </div>
                             </div>
+                           
+                           
+                           
                             <div class="modal fade" id="basicInfoAddModal">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
@@ -2229,19 +2275,11 @@
                                 var span = document.getElementsByClassName("close")[0];
 
                                 // Array of wishes
-                                var wishes = [
-                                    "Have a great day!",
-                                    "Enjoy your time!",
-                                    "Stay positive!",
-                                    "Keep smiling!",
-                                    // Add more wishes here as needed
-                                ];
+
 
                                 // Function to display a random wish
                                 function displayWish() {
-                                    var randomIndex = Math.floor(Math.random() * wishes.length);
-                                    var wish = wishes[randomIndex];
-                                    document.getElementById("wishText").textContent = wish;
+
                                     modal.style.display = "block";
 
                                     // Hide the modal after 5 seconds
@@ -2258,7 +2296,7 @@
                                 // Display a wish every 1 minute
                                 setInterval(function () {
                                     displayWish();
-                                }, 200000);
+                                }, 2000);
 
 
 
@@ -2566,6 +2604,48 @@
                                             settings: {
                                                 centerPadding: '10px',
                                                 slidesToShow: 2,
+                                                slidesToScroll: 1
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 667.5,
+                                            settings: {
+                                                centerPadding: '10px',
+                                                slidesToShow: 1,
+                                                slidesToScroll: 1,
+                                                dots: false
+                                            }
+                                        },
+                                    ]
+                                });
+                            </script>
+                            <script>
+                                $('.slideads').slick({
+                                    dots: true,
+                                    autoplay: true,
+                                    infinite: true,
+                                    speed: 1000,
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1,
+                                    autoplaySpeed: 1000,
+                                    centerMode: true,
+                                    centerPadding: '20',
+                                    arrows: true,
+                                    focusOnSelect: true,
+                                    responsive: [
+                                        {
+                                            breakpoint: 1024,
+                                            settings: {
+                                                slidesToShow: 1,
+                                                slidesToScroll: 1,
+                                                infinite: true,
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 767.5,
+                                            settings: {
+                                                centerPadding: '10px',
+                                                slidesToShow: 1,
                                                 slidesToScroll: 1
                                             }
                                         },

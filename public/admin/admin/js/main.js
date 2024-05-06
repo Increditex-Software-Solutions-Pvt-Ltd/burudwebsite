@@ -389,6 +389,7 @@ function confirmDeleteReview(reviewId) {
 	}
 }
 
+
 async function deleteReview(reviewId) {
 	try {
 
@@ -408,7 +409,71 @@ async function deleteReview(reviewId) {
 	}
 }
 
+function resetAdvertiseForm() {
+	$('#advertiseAddModalLabel').text('add advertisement');
+	$('#advertise-form').trigger('reset');
+}
 
+function addAdvertise() {
+	resetAdvertiseForm();
+	$('#advertiseAddModal').modal('show');
+}
+
+function editAdvertise(advertise_id) {
+	resetAdvertiseForm();
+
+	$('#advertise-form').attr('action', '/admin/advertise/' + advertise_id);
+	$.ajax({
+		url: '/admin/advertise/' + advertise_id,
+		method: 'GET',
+		success: function (res) {
+			console.log(res);
+			if (res.success) {
+				const advertisements = res.data;
+				const parent = $('#advertiseAddModal');
+				$('#reviewAddModalLabel').text("update advertisements");
+				$('[name="advertisename"]', parent).val(advertisements.advertisename);
+				$('[name="advertisedesc"]', parent).val(advertisements.advertisedesc);
+				
+
+				parent.modal('show');
+			}
+			else {
+				console.error('Failed to retrieve advertise:', res.message);
+			}
+		},
+		error: function (xhr, status, error) {
+			console.error('Error retrieving story:', error);
+		}
+	})
+}
+
+function confirmDeleteAdvertise(adId) {
+	if (confirm('Are you sure you want to delete this advertisement?')) {
+		delete
+		deleteAdvertise(adId);
+	}
+}
+
+
+async function deleteAdvertise(adId) {
+	try {
+
+		const response = await fetch(`/admin/delete-advertise/${adId}`, {
+			method: 'POST',
+		});
+
+		if (response.ok) {
+
+			window.location.href = '/admin/advertise';
+		} else {
+
+			console.error('Error deleting advertisement:', response.statusText);
+		}
+	} catch (error) {
+		console.error('Error deleting advertisement:', error);
+	}
+}
 
 
 

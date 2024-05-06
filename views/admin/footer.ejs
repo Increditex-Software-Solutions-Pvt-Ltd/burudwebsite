@@ -351,6 +351,47 @@
 	</div>
 </div>
 
+<div class="modal fade" id="advertiseAddModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+		<div class="modal-content shadow border">
+			<div class="modal-header">
+				<h5 class="modal-title" id="advertiseAddModalLabel"></h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form action="/admin/add-advertise" method="post" class="row g-3" id="advertise-form" enctype="multipart/form-data">
+					<div class="col-md-6 col-12">
+						<div class="mb-3">
+							<label for="" class="form-label">advertise pic(any 1)</label>
+							<input type="file"  accept=".jpg, .png, .jpeg, image/jpeg, image/png" class="form-control form-control-sm " name="advertisepic">
+						</div>
+						
+					</div>
+					<div class="col-md-6 col-12">
+						<div class="mb-3">
+							<label for="" class="form-label">advertise title</label>
+							<input type="text" class="form-control form-control-sm " name="advertisename">
+						</div>
+					</div>
+					
+					
+					<div class="col-md-12 col-12">
+						<div class="mb-3">
+							<label for="" class="form-label">some advertise description</label>
+							<textarea name="advertisedesc" class="form-control" id=""  rows="6"></textarea>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="modal-footer pt-0 border-top-0">
+				<button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="submit" form="advertise-form" class="btn btn-sm btn-dark">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="modal fade" id="viewMoreModal" data-bs-backdrop="static" data-bs-keyboard="false">
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content border shadow-lg">

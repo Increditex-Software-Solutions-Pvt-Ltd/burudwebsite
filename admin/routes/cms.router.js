@@ -1,5 +1,5 @@
 const express = require("express");
-const { addAboutpage, getAboutUpdateForm, addMember, getMemberUpdateForm, updateAbout, updateMember, deleteMember, addSuccessStory, getStoryUpdateForm, updateStory, deleteStory, addSuccessVideo, getVideoUpdateForm, updateVideo, deleteVideo, addReview, getReviewUpdateForm, updateReview, deleteReview } = require("../controllers/cms/cms.controller");
+const { addAboutpage, getAboutUpdateForm, addMember, getMemberUpdateForm, updateAbout, updateMember, deleteMember, addSuccessStory, getStoryUpdateForm, updateStory, deleteStory, addSuccessVideo, getVideoUpdateForm, updateVideo, deleteVideo, addReview, getReviewUpdateForm, updateReview, deleteReview, addAdvertise, getAdvertiseForm, updateAdvertise, deleteAdvertise } = require("../controllers/cms/cms.controller");
 const cmsRouter = express.Router();
 
 cmsRouter.post('/addabout',addAboutpage);
@@ -21,6 +21,11 @@ cmsRouter.post('/addreview',addReview);
 cmsRouter.get('/review/:id',getReviewUpdateForm);
 cmsRouter.post('/review/:id',updateReview);
 cmsRouter.post('/delete-review/:id',deleteReview);
+
+cmsRouter.post('/add-advertise',addAdvertise);
+cmsRouter.get('/advertise/:id',getAdvertiseForm);
+cmsRouter.post('/advertise/:id',updateAdvertise);
+cmsRouter.post('/delete-advertise/:id',deleteAdvertise);
 
 cmsRouter.post('/addvideo',addSuccessVideo);
 cmsRouter.get('/video/:id',getVideoUpdateForm);

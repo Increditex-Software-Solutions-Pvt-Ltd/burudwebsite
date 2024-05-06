@@ -13,6 +13,7 @@ const { Successstory } = require("../models/Successstory.model");
 const { Successvideo } = require("../models/Successvideo.model");
 const { Userprofile } = require("../../user/models/userprofile.model");
 const { Review } = require("../models/Review.model");
+const { Advertise } = require("../models/Advertise.model");
 
 const adminController = {
     getDashboardpage: async (req, res) => {
@@ -59,6 +60,11 @@ const adminController = {
     getadressBookPage: async (req, res) => {
         const users = await User.findAll();
         return res.render("admin/addressBook", { users });
+      },
+    getaddvertisepage: async (req, res) => {
+        const advertisements =await Advertise.findAll();
+        const hasAdvertise = advertisements.length > 0;
+        return res.render("admin/advertise",{advertisements,hasAdvertise});
       },
     getReviewPage: async (req, res) => {
         const reviews = await Review.findAll();
