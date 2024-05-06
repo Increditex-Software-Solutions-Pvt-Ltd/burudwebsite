@@ -56,6 +56,10 @@ const adminController = {
     getAdminRegisterpage: async (req, res) => {
         return res.render('admin/register')
     },
+    getadressBookPage: async (req, res) => {
+        const users = await User.findAll();
+        return res.render("admin/addressBook", { users });
+      },
     getReviewPage: async (req, res) => {
         const reviews = await Review.findAll();
         return res.render('admin/review',{reviews})

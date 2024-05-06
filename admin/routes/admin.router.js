@@ -1,5 +1,5 @@
 const express = require("express");
-const { getDashboardpage, getCmspage, getAdminLoginpage, getAdminRegisterpage, handleRegisterAdmin, handleAdminlogin, postLogoutAdmin, getuserspage, getSingleUser,approveUser, rejectUser, getReviewPage } = require("../controllers/admin.controller");
+const { getDashboardpage, getCmspage, getAdminLoginpage, getAdminRegisterpage, handleRegisterAdmin, handleAdminlogin, postLogoutAdmin, getuserspage, getSingleUser,approveUser, rejectUser, getReviewPage, getadressBookPage } = require("../controllers/admin.controller");
 const isAdminLoggedIn = require("../middleware/admin.middleware");
 const adminRouter = express.Router();
 
@@ -15,6 +15,7 @@ adminRouter.get('/get-single-user/:id',getSingleUser);
 adminRouter.post("/approveuser",approveUser)
 adminRouter.post("/rejectuser",rejectUser);
 adminRouter.get("/review",getReviewPage);
+adminRouter.get("/address_book", getadressBookPage);
 
 
 

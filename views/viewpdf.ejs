@@ -90,7 +90,8 @@
 <body style="background-color:#edebeb">
     <div class="container">
         <div class="text-center my-2">
-            <button id="downloadPdfBtn" class="btn btn-lg btn-outline-danger">Download PDF</button>
+            <button id="downloadPdfBtn" class="btn btn-outline-danger">Download PDF</button>
+            <button id="sharePdfBtn" class="btn btn-outline-success">Share PDF On Whatsapp</button>
         </div>
         <div class="card mt-2 rounded-0 biodata shadow-lg position-relative">
            
@@ -308,7 +309,35 @@
             html2pdf().from(element).set(opt).save();
         });
     </script>
-  
+<script>
+    $('#sharePdfBtn').click(function () {
+        // Select the element to be converted to PDF
+        var element = document.querySelector('.biodata');
+
+        // Define options for the PDF generation
+        var opt = {
+            margin: 0.5, // Adjust margin as necessary
+            filename: 'biodata.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 1, logging: false, scrollY: -window.scrollY },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        // Generate the PDF
+        html2pdf().from(element).set(opt).toPdf().get('pdf').then(function (pdf) {
+            // Convert PDF to base64 to share
+            var pdfBase64 = btoa(pdf.output('blob').slice(0, -1));
+
+            // Open WhatsApp message window with PDF attached
+            window.open('https://wa.me/?text=Please%20see%20the%20attached%20PDF:%20data:application/pdf;base64,' + encodeURIComponent(pdfBase64));
+        });
+    });
+</script>
+
+
+
+
+
     
 </body>
 
